@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Stopper Game</title>
+</head>
+<body>
+    <h1>color stopper game as well with setInterval</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+    <script>
+        var intervalId = null;
+
+        const startChangingColor = function() {
+            if (intervalId === null) {
+                intervalId = setInterval(changeBgColor, 1000);
+                console.log("Color changing started");
+            }
+        };
+
+        const stopChangingColor = function() {
+            if (intervalId !== null) {
+                clearInterval(intervalId);
+                intervalId = null;
+                console.log("Color changing stopped");
+            }
+        };
+
+        function changeBgColor() {
+            document.body.style.backgroundColor = randomColor();
+        }
+
+        const randomColor = function() {
+            const hex = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += hex[Math.floor(Math.random() * 16)+1];
+            }
+            return color;
+        };
+
+        document.getElementById("start").addEventListener("click", startChangingColor);
+        document.getElementById("stop").addEventListener("click", stopChangingColor);
+    </script>
+</body>
+</html>

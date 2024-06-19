@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 1s ease;
+        }
+        .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        .button:hover {
+            transform: scale(1.4);
+        }
+        #grey {
+            background-color: grey;
+            color: white;
+        }
+        #white {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+        }
+        #blue {
+            background-color: blue;
+            color: white;
+        }
+        #yellow {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button id="grey" class="button">Grey</button>
+        <button id="white" class="button">White</button>
+        <button id="blue" class="button">Blue</button>
+        <button id="yellow" class="button">Yellow</button>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.button');
+        const body = document.querySelector('body');
+
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function(e) {
+                body.style.backgroundColor = e.target.id;
+            });
+        });
+    </script>
+</body>
+</html>

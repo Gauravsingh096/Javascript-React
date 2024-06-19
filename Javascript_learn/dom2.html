@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom-2</title>
+</head>
+<body style="background-color: aqua;text-align: center; color: blueviolet;">
+    <div class="parent">
+        <div class="day">Mon</div>
+        <div class="day">tues</div>
+        <div class="day">wed</div>
+        <div class="day">thurs</div>
+    </div>
+    
+
+<script>
+    const parent=document.querySelector(".parent");
+    // console.log(parent);
+    // console.log(parent.children[3]);
+    // console.log(parent.children[1].innerHML) ;
+    // console.log(parent.children[1].innerText);
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML);        
+    }
+    parent.children[1].style.color = "orange"
+    console.log(parent.firstElementChild);
+    console.log(parent.lastElementChild);
+
+    const dayone = document.querySelector('.day')
+    console.log(dayone);
+
+    // optimised
+    console.log(dayone.parentElement);
+
+    const div = document.createElement('div')
+    console.log(div);
+    div.className = "main"
+    div.id = Math.round(Math.random() * 10 + 1)
+    div.setAttribute("title", "generated title")
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+    // div.innerText = "Chai aur code"
+    const addText = document.createTextNode("i am good!")
+    div.appendChild(addText)
+    document.body.appendChild(div)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit dom </title> 
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li>Js</li>
+
+    </ul> 
+    
+
+<script>
+    // inner se traverse 
+    function addLanguage(langname)
+    {
+        const li = document.createElement("li");
+        li.innerHTML=`${langname}`
+        document.querySelector('.language').appendChild(li);
+
+    }
+    addLanguage("type")
+    addLanguage("python")
+    // optimimsed no tree travesal used
+    function addoptLanguage(langname)
+    {
+        const li=document.createElement('li');
+        li.appendChild(document.createTextNode(langname))
+        document.querySelector('.langname').appendChild(li)
+    }
+    addoptLanguage('go')
+    // edit 
+    const secondLang=document.querySelector("li:nth-child(2)")
+    const newli=document.createElement('li')
+    newli.textContent="mojo"
+    secondLang.replaceWith(newli)
+    comsolelog(secondLang);
+    console.log(newli);
+    // remove
+    const thirdLi=document.querySelector("li:last-child")
+    thirdLi.remove()
+    console.log(thirdLi);
+
+</script>
+</body>
+</html>

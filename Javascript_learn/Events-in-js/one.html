@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+<body>
+    <img src="/Events-in-js/Screenshot (210).png" id="image1"
+    alt="smash image">
+    <!-- onclick="alert(' i am good')" -->
+    <script>
+        // document.getElementById('image1').onclick = function () {
+        //     alert('i am good')
+            
+        // }
+        document.getElementById('image1').addEventListener('click', function(e){
+            console.log(e)
+            e.preventDefault();
+            e.stopPropagation();
+            alert('i am good again !!!')
+        }, false);
+        // Remove Element like image as well 
+        document.querySelector('#image1').addEventListener('click', function(e){
+            console.log(e.target.parentNode);
+            let remove = e.target.parentNode;
+            remove.remove();
+        }, false);
+    </script>
+</body>
+</html>
